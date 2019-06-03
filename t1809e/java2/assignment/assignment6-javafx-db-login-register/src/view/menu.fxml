@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane fx:controller="controller.MenuController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button onAction="#login" layoutX="150.0" layoutY="65.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="301.0" text="Login" />
+      <Button onAction="#register" layoutX="150.0" layoutY="118.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="301.0" text="Register" />
+      <Button onAction="#list" layoutX="150.0" layoutY="175.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="301.0" text="List" />
+      <Button onAction="#exit" layoutX="150.0" layoutY="237.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="301.0" text="Exit" />
+   </children>
+</Pane>
