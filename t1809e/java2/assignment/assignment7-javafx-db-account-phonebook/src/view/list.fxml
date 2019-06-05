@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:controller="controller.ListController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="tbView" layoutX="7.0" layoutY="74.0" prefHeight="317.0" prefWidth="586.0">
+        <columns>
+            <TableColumn fx:id="colId" prefWidth="82.0" text="No" />
+            <TableColumn fx:id="colUsername" prefWidth="150.0" text="UserName" />
+            <TableColumn fx:id="colEmail" prefWidth="150.0" text="Email" />
+            <TableColumn fx:id="colPassword" prefWidth="150.0" text="Password" />
+            <TableColumn fx:id="colEdit" prefWidth="52.0" text="Edit" />
+        </columns>
+      </TableView>
+      <Hyperlink onAction="#menu" layoutX="14.0" layoutY="14.0" text="Menu" />
+      <Text layoutX="260.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="List Account" />
+   </children>
+</Pane>
