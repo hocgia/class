@@ -28,12 +28,12 @@ public class Controller {
     }
 
     public void display() {
-        System.out.printf("%10s\n","Address Book");
-        System.out.printf("%15s | %15s\n", "Contact Name", "Phone number");
+        System.out.printf("%10s Address Book\n"," ");
+        System.out.printf("%-15s | %-15s\n", "Contact Name", "Phone number");
         for (Map.Entry entry : contactHashMap.entrySet()) {
             String name = (String) entry.getKey();
             String phone = (String) entry.getValue();
-            System.out.printf("%15s | %15s\n", name, phone);
+            System.out.printf("%-15s | %-15s\n", name, phone);
         }
     }
 }
