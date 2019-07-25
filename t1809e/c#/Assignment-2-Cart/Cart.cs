@@ -29,6 +29,7 @@ namespace Assignment_2_Cart
 
         public Cart()
         {
+            _products = new List<Product>();
         }
 
         public Cart(string id, string customer, long grandtotal, List<Product> products, city city, country country)
