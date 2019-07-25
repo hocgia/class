@@ -57,9 +57,15 @@ namespace Assignment_2_Cart
             }
             Console.WriteLine("Input index product you want remove:");
             var index = Convert.ToInt32(Console.ReadLine()) - 1;
-            if (!(index > 0 && index <= _products.Count)) ;
-            _products.RemoveAt(index);
-            Console.WriteLine("Remove product success: {0}", _products[index]._name);
+            if (!(index > 0 && index <= _products.Count))
+            {
+                _products.RemoveAt(index);
+                Console.WriteLine("Remove product success: {0}", _products[index]._name);    
+            }
+            else
+            {
+                Console.WriteLine("Invalid index!");
+            }
         }
 
         public double CalculatorTotalPrice()
