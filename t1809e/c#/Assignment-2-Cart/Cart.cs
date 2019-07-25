@@ -22,7 +22,7 @@ namespace Assignment_2_Cart
         
         public string _id;
         public string _customer;
-        public long _grandtotal;
+        public double _grandtotal;
         public List<Product> _products;
         public city _city;
         public country _country;
@@ -32,7 +32,7 @@ namespace Assignment_2_Cart
             _products = new List<Product>();
         }
 
-        public Cart(string id, string customer, long grandtotal, List<Product> products, city city, country country)
+        public Cart(string id, string customer, double grandtotal, List<Product> products, city city, country country)
         {
             _id = id;
             _customer = customer;
@@ -94,6 +94,7 @@ namespace Assignment_2_Cart
             {
                 totalPrice += totalPrice * 5 / 100;
             }
+            _grandtotal = totalPrice;
             return totalPrice;
         }
     }
