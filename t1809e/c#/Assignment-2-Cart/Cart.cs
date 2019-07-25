@@ -42,12 +42,14 @@ namespace Assignment_2_Cart
             _country = country;
         }
 
-        public void AddOne(Product product)
+        public bool AddOne(Product product)
         {
+            if (_products.Contains(product)) return false;
             _products.Add(product);
+            return true;
         }
 
-        public void RemoveOne()
+        public bool RemoveOne()
         {
             Console.WriteLine("List product");
             for (var i = 0; i < _products.Count; i++)
@@ -61,10 +63,12 @@ namespace Assignment_2_Cart
             {
                 _products.RemoveAt(index);
                 Console.WriteLine("Remove product success: {0}", _products[index]._name);    
+                return true;
             }
             else
             {
                 Console.WriteLine("Invalid index!");
+                return false;
             }
         }
 
