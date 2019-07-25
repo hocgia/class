@@ -14,6 +14,7 @@ namespace Assignment_2_overloading
 
         public Product()
         {
+            _gallery = new ArrayList();
         }
 
         public Product(string id, string name, long price, int quantity, string description, ArrayList gallery)
