@@ -38,7 +38,7 @@ namespace exam
                         Environment.Exit(0);
                         break;
                     default:
-                        Console.WriteLine("Incorrect entry, please enter numbers from 1 - 6.");
+                        Console.WriteLine("Incorrect entry, please enter numbers from 1 - 4.");
                         break;
                 };
             }
