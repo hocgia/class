@@ -22,8 +22,8 @@ class StudentController extends Controller
         $rules = [
             "name" => "required|string|max:255",
             "age" => "required|numeric|min:10|max:100",
-            "address" => "required|string|max:255",
-            "telephone" => "required|numeric|min:10"
+            "address" => "required|string|max:200",
+            "telephone" => "required|string|max:20"
         ];
         $this->validate($request, $rules);
         try {
