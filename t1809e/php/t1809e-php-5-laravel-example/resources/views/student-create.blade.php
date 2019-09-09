@@ -28,7 +28,7 @@
             </div>
             <div class="form-group">
                 <label>Telephone</label>
-                <input class="form-control" type="number" name="telephone" value="{{old("telephone")}}" placeholder="Telephone" required>
+                <input class="form-control" type="string" name="telephone" value="{{old("telephone")}}" placeholder="Telephone" required>
                 @if($errors->has("telephone"))
                     <p class="error" style="color:red">{{$errors->first("telephone")}}</p>
                 @endif
