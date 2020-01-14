@@ -1,0 +1,25 @@
+﻿<Page
+    x:Class="Exam.Views.Add"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Exam.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RelativePanel>
+        <Grid RelativePanel.AlignHorizontalCenterWithPanel="True"
+              RelativePanel.AlignVerticalCenterWithPanel="True">
+            <StackPanel Orientation="Vertical" Width="300">
+                <TextBlock Text="Add Student" Margin="12" FontWeight="Bold" FontSize="36" TextAlignment="Center"/>
+                <TextBox x:Name="RoleNumber" PlaceholderText="Role Number" Margin="12, 12, 12, 18"/>
+                <TextBox x:Name="Name" PlaceholderText="Name" Margin="12"/>
+                <ProgressRing Name="LoadingProgressRing" IsActive="False"/>
+                <TextBlock x:Name="Add_Error" Margin="12, 0" Foreground="Red" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Visibility="Collapsed"/>
+                <Button Content="Add Contact" Margin="12, 18" Width="276" Click="AddStudent_Button_Click"/>
+                <HyperlinkButton Margin="12" Click="BackToMaster_HyperlinkButton_Click" Content="Back to home"/>
+            </StackPanel>
+        </Grid>
+    </RelativePanel>
+</Page>
