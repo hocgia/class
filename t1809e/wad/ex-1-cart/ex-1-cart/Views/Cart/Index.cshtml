@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ex_1_cart.Models.CartItem>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Back to list", "", "Products", null, null)
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.ActionLink("Remove", "Remove", "Cart", new { productId = item.ProductId }, null) |
+                @Html.ActionLink("Increase", "Increase", "Cart", new { productId = item.ProductId }, null) |
+                @Html.ActionLink("Reduction", "Reduction", "Cart", new { productId = item.ProductId }, null) |
+            </td>
+        </tr>
+    }
+
+</table>
