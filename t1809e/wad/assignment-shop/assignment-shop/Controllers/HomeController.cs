@@ -17,10 +17,8 @@ namespace assignment_shop.Controllers
         private CategoryDAO categoryDAO = new CategoryDAO();
 
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(string category)
         {
-            // @todo: search category
-            var category;
             var categories = categoryDAO.GetAll();
             IEnumerable<ProductModels> products;
             if (String.IsNullOrEmpty(category))
@@ -39,7 +37,7 @@ namespace assignment_shop.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(string keyword)
+        public ActionResult Index(string keyword, string hidden)
         {
             var categories = categoryDAO.GetAll();
             var products = productDAO.FindByName(keyword);
