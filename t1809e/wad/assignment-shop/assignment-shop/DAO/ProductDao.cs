@@ -20,5 +20,11 @@ namespace assignment_shop.DAO
             var productModels = db.ProductModels.Where(s => s.CategoryId == categoryID);
             return productModels.ToList();
         }
+
+        public List<ProductModels> FindByCategoryIDAndKeyword(string categoryID, string keyword)
+        {
+            var productModels = db.ProductModels.Where(s => s.CategoryId == categoryID & s.Name.Contains(keyword));
+            return productModels.ToList();
+        }
     }
 }

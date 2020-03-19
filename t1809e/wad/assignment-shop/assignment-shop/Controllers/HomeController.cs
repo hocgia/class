@@ -16,15 +16,49 @@ namespace assignment_shop.Controllers
         private ProductDAO productDAO = new ProductDAO();
         private CategoryDAO categoryDAO = new CategoryDAO();
 
+        //[HttpGet]
+        //public ActionResult Index(string category, string keyword)
+        //{
+        //    IEnumerable<ProductModels> products;
+        //    var categories = categoryDAO.GetAll();
+
+        //    if (String.IsNullOrEmpty(keyword))
+        //    {
+        //        keyword = "";
+        //    }
+
+        //    ViewBag.Category = category;
+        //    ViewBag.Keyword = keyword;
+
+        //    if (String.IsNullOrEmpty(category))
+        //    {
+        //        products = productDAO.FindByName(keyword);
+        //    }
+        //    else
+        //    {
+        //        products = productDAO.FindByCategoryIDAndKeyword(category, keyword);
+        //    }
+
+        //    var productCategory = new ProductCategory()
+        //    {
+        //        Products = products,
+        //        Categories = categories
+        //    };
+        //    return View(productCategory);
+        //}
+
         [HttpGet]
         public ActionResult Index(string category)
         {
+            ViewBag.Keyword = "";
+
             var categories = categoryDAO.GetAll();
             IEnumerable<ProductModels> products;
             if (String.IsNullOrEmpty(category))
             {
                 products = db.ProductModels.Include(p => p.Category).ToList();
-            } else
+            }
+            else
             {
                 products = productDAO.FindByCategoryID(category);
             }
@@ -39,6 +73,7 @@ namespace assignment_shop.Controllers
         [HttpPost]
         public ActionResult Index(string keyword, string hidden)
         {
+            ViewBag.Keyword = keyword;
             var categories = categoryDAO.GetAll();
             var products = productDAO.FindByName(keyword);
             var productCategory = new ProductCategory()
