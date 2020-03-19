@@ -11,8 +11,14 @@ namespace assignment_shop.DAO
         private ApplicationDbContext db = new ApplicationDbContext();
         public List<ProductModels> FindByName(string keyword)
         {
-            var products = db.ProductModels.Where(s => s.Name.Contains(keyword));
-            return products.ToList();
+            var productModels = db.ProductModels.Where(s => s.Name.Contains(keyword));
+            return productModels.ToList();
+        }
+
+        public List<ProductModels> FindByCategoryID(string categoryID)
+        {
+            var productModels = db.ProductModels.Where(s => s.CategoryId == categoryID);
+            return productModels.ToList();
         }
     }
 }

@@ -14,19 +14,41 @@ namespace assignment_shop.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         private ProductDAO productDAO = new ProductDAO();
+        private CategoryDAO categoryDAO = new CategoryDAO();
 
         [HttpGet]
         public ActionResult Index()
         {
-            var productModels = db.ProductModels.Include(p => p.Category);
-            return View(productModels.ToList());
+            // @todo: search category
+            var category;
+            var categories = categoryDAO.GetAll();
+            IEnumerable<ProductModels> products;
+            if (String.IsNullOrEmpty(category))
+            {
+                products = db.ProductModels.Include(p => p.Category).ToList();
+            } else
+            {
+                products = productDAO.FindByCategoryID(category);
+            }
+            var productCategory = new ProductCategory()
+            {
+                Products = products,
+                Categories = categories
+            };
+            return View(productCategory);
         }
 
         [HttpPost]
         public ActionResult Index(string keyword)
         {
-            var producsts = productDAO.FindByName(keyword);
-            return View(producsts);
+            var categories = categoryDAO.GetAll();
+            var products = productDAO.FindByName(keyword);
+            var productCategory = new ProductCategory()
+            {
+                Products = products,
+                Categories = categories
+            };
+            return View(productCategory);
         }
 
         public ActionResult About()
