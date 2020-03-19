@@ -12,7 +12,7 @@ namespace assignment_shop.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string Thumbnail { get; set; }
-        public string Price { get; set; }
+        public int Price { get; set; }
         [ForeignKey("Category")]
         public string CategoryId { get; set; }
         public virtual CategoryModels Category { get; set; }

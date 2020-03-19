@@ -1,6 +1,9 @@
-﻿using System;
+﻿using assignment_shop.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -8,9 +11,11 @@ namespace assignment_shop.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
-            return View();
+            var productModels = db.ProductModels.Include(p => p.Category);
+            return View(productModels.ToList());
         }
 
         public ActionResult About()
