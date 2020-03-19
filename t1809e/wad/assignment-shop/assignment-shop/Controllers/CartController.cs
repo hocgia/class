@@ -17,14 +17,14 @@ namespace assignment_shop.Controllers
         }
 
         // POST: Cart/Add
-        public void Add(string productId)
+        public ActionResult Add(string productId)
         {
             _cart.Add(new CartItemModels
             {
                 ProductId = productId,
                 Quantity = 1,
             });
-            //return View("~/Views/Cart/Index.cshtml", _cart);
+            return View("~/Views/Cart/Index.cshtml", _cart);
         }
 
         public ActionResult Remove(string productId)
