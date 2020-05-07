@@ -49,15 +49,17 @@ namespace WcfDemoClient.Controllers
         {
             var client = new UserServiceReference.UserServiceClient();
             var rs = client.TransferMoney(SCode, RCode, Amount);
+            ViewBag.Message = Account.UserName;
+            ViewBag.Blance = Account.Blance;
             if (rs)
             {
-                ViewBag.Message = "Success";
-                return View();
+                ViewBag.Noti = "Tranfer Success";
+                return View(new TranferViewModel() { SCode = SCode, RCode = "", Amount = 0 });
             }
             else
             {
-                ViewBag.Message = "Error";
-                return View();
+                ViewBag.Noti = "Tranfer Error";
+                return View(new TranferViewModel() { SCode = SCode, RCode = RCode, Amount = Amount });
             }
         }
     }

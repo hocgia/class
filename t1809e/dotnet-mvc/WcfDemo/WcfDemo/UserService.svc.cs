@@ -27,13 +27,16 @@ namespace WcfDemo
             if (sAccount.Blance >= amount)
             {
                 var rAccount = db.Accounts.Where(r => r.Code == rCode).FirstOrDefault();
-                sAccount.Blance -= amount;
-                rAccount.Blance += amount;
-                db.Entry(sAccount).State = EntityState.Modified;
-                db.SaveChanges();
-                db.Entry(rAccount).State = EntityState.Modified;
-                db.SaveChanges();
-                return true;
+                if (rAccount != null)
+                {
+                    sAccount.Blance -= amount;
+                    rAccount.Blance += amount;
+                    db.Entry(sAccount).State = EntityState.Modified;
+                    db.SaveChanges();
+                    db.Entry(rAccount).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return true;
+                }
             }
             return false;
         }
